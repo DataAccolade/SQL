@@ -1,0 +1,37 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [Cfg] (Schema)
+       [Dim] (Schema)
+       [Fct] (Schema)
+       [Fwk] (Schema)
+       [Lkp] (Schema)
+       [Stg] (Schema)
+       [Tab] (Schema)
+       [Fwk].[FactTable] (Table)
+       [dbo].[Table1] (Table)
+       Default Constraint: unnamed constraint on [Fwk].[FactTable] (Default Constraint)
+       [Fwk].[DF__Fwk__FactTable__BizField4] (Default Constraint)
+       [Fwk].[DF__Fwk__FactTable__idf_Source] (Default Constraint)
+       [Fwk].[DF__Fwk__FactTable__idf_ModifiedDate] (Default Constraint)
+       [Cfg].[MS_Description] (Extended Property)
+       [Dim].[MS_Description] (Extended Property)
+       [Fct].[MS_Description] (Extended Property)
+       [Fwk].[MS_Description] (Extended Property)
+       [Fwk].[FactTable].[MS_Description] (Extended Property)
+       [Fwk].[FactTable].[idf_FactTableKey].[MS_Description] (Extended Property)
+       [Fwk].[CPK__Fwk__FactTable__idf_FactTableKey].[MS_Description] (Extended Property)
+       [Lkp].[MS_Description] (Extended Property)
+       [Stg].[MS_Description] (Extended Property)
+       [Tab].[MS_Description] (Extended Property)
+
+** Supporting actions

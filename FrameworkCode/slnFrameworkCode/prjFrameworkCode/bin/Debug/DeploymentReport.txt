@@ -1,0 +1,20 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[FactTable] (Table)
+       Default Constraint: unnamed constraint on [dbo].[FactTable] (Default Constraint)
+       [dbo].[DF__dboFactTable__BizField4] (Default Constraint)
+       [dbo].[FactTable].[MS_Description] (Extended Property)
+       [dbo].[FactTable].[idf_FactTableKey].[MS_Description] (Extended Property)
+       [dbo].[CPK__dboFactTable__idf_FactTableKey].[MS_Description] (Extended Property)
+
+** Supporting actions

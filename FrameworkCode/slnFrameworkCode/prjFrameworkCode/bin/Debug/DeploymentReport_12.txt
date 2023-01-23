@@ -1,0 +1,22 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [Fwk].[Framework] (Table)
+       Default Constraint: unnamed constraint on [Fwk].[Framework] (Default Constraint)
+       [Fwk].[DF__Fwk__Framework__BizField4] (Default Constraint)
+       [Fwk].[DF__Fwk__Framework__idf_Source] (Default Constraint)
+       [Fwk].[DF__Fwk__Framework__idf_ModifiedDate] (Default Constraint)
+       [Fwk].[Framework].[MS_Description] (Extended Property)
+       [Fwk].[Framework].[idf_FrameworkKey].[MS_Description] (Extended Property)
+       [Fwk].[CPK__Fwk__Framework__idf_FrameworkKey].[MS_Description] (Extended Property)
+
+** Supporting actions

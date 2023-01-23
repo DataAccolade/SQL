@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.89
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "prjFrameworkCode", "prjFrameworkCode\prjFrameworkCode.sqlproj", "{BFBBABD3-9EF9-4347-91BF-C029F3A89B15}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BFBBABD3-9EF9-4347-91BF-C029F3A89B15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFBBABD3-9EF9-4347-91BF-C029F3A89B15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFBBABD3-9EF9-4347-91BF-C029F3A89B15}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BFBBABD3-9EF9-4347-91BF-C029F3A89B15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFBBABD3-9EF9-4347-91BF-C029F3A89B15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFBBABD3-9EF9-4347-91BF-C029F3A89B15}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD7E1F5E-68EF-4863-AEED-4083B2088635}
+	EndGlobalSection
+EndGlobal

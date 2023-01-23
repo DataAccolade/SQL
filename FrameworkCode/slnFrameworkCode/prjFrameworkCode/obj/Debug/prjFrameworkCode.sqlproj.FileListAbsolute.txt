@@ -1,0 +1,9 @@
+C:\Users\snikk\Desktop\FrameworkCode\slnFrameworkCode\prjFrameworkCode\bin\Debug\prjFrameworkCode.dacpac
+C:\Users\snikk\Desktop\FrameworkCode\slnFrameworkCode\prjFrameworkCode\bin\Debug\prjFrameworkCode.dll
+C:\Users\snikk\Desktop\FrameworkCode\slnFrameworkCode\prjFrameworkCode\bin\Debug\prjFrameworkCode.pdb
+C:\Users\snikk\Desktop\FrameworkCode\slnFrameworkCode\prjFrameworkCode\obj\Debug\Model.xml
+C:\Users\snikk\Desktop\FrameworkCode\slnFrameworkCode\prjFrameworkCode\obj\Debug\refactor.xml
+C:\Users\snikk\Desktop\FrameworkCode\slnFrameworkCode\prjFrameworkCode\obj\Debug\postdeploy.sql
+C:\Users\snikk\Desktop\FrameworkCode\slnFrameworkCode\prjFrameworkCode\obj\Debug\predeploy.sql
+C:\Users\snikk\Desktop\FrameworkCode\slnFrameworkCode\prjFrameworkCode\obj\Debug\prjFrameworkCode.dll
+C:\Users\snikk\Desktop\FrameworkCode\slnFrameworkCode\prjFrameworkCode\obj\Debug\prjFrameworkCode.pdb

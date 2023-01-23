@@ -1,0 +1,26 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       [dbo].[FactTable]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The column [dbo].[FactTable].[BizField3] is being dropped, data loss could occur.
+
+** User actions
+     Drop
+       unnamed constraint on [dbo].[FactTable] (Default Constraint)
+     Table rebuild
+       [dbo].[FactTable] (Table)
+
+** Supporting actions
+     Drop
+       [dbo].[DF__dboFactTable__BizField4] (Default Constraint)
+     Create
+       [dbo].[FactTable].[MS_Description] (Extended Property)
+       [dbo].[FactTable].[idf_FactTableKey].[MS_Description] (Extended Property)
+       [dbo].[CPK__dboFactTable__idf_FactTableKey].[MS_Description] (Extended Property)
+
+The column [dbo].[FactTable].[BizField3] is being dropped, data loss could occur.
+
