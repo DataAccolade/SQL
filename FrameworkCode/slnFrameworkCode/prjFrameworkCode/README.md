@@ -28,7 +28,7 @@ The blocks included in the Table script are described as below.
 *Note: idf stands for Internal Data Fields.* <br>
 5- Object Description (Table/View/SP/Trigger/Function/...) <br>
 <img src="https://user-images.githubusercontent.com/114548387/214375793-21d4d91e-4c06-4c34-8a14-0ecdb8d2385b.png" alt="Object Description" width="600"/><br>
-6- Field Description
+6- Field Description<br>
 <img src="https://user-images.githubusercontent.com/114548387/214376011-da6dbe6c-9eb1-44b0-87a1-5f1feec20c52.png" alt="Field Description" width="600"/><br>
 5- Tests/Evaluation <br>
 <img src="https://user-images.githubusercontent.com/114548387/214376258-7625dc9b-e8f8-4fe5-9521-22453c46a564.png" alt="Test" width="600"/><br>
