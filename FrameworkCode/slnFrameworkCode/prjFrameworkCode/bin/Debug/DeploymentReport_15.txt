@@ -1,0 +1,16 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [Fwk].[usp_Framework_200_Master] (Procedure)
+       [Fwk].[usp_Framework_200_Master].[MS_Description] (Extended Property)
+
+** Supporting actions

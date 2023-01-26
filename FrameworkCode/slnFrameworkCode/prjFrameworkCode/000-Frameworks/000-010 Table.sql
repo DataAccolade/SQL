@@ -1,6 +1,6 @@
 ﻿----- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
------ Framework: Nik - Shahriar Nikkhah               Date: 2022-09-21	Time: 23:04
------ Author:    Enzo - Parsa Bahrami                 Date: 2023-01-18	Time: 21:52
+----- FrmWrk: Nik - Shahriar Nikkhah               Date: 2022-09-21	Time: 23:04
+----- Author: Enzo - Parsa Bahrami                 Date: 2023-01-18	Time: 21:52
 ----- 
 ----- Input :
 ----- 
@@ -91,7 +91,7 @@ CREATE TABLE [Fwk].[Framework]
     ---------------------------------------------------------------------
 	--- More internal fields
 	---------------------------------------------------------------------
-	,	[idf_Source]			varchar(100)    NOT NULL CONSTRAINT [DF__Fwk__Framework__idf_Source]	DEFAULT ('')
+	,	[idf_Source]			varchar(100)    NOT NULL CONSTRAINT [DF__Fwk__Framework__idf_Source]		DEFAULT ('')
 	,	[idf_ModifiedDate]		Datetime		NOT NULL CONSTRAINT [DF__Fwk__Framework__idf_ModifiedDate]	DEFAULT (getdate())
 );
 GO

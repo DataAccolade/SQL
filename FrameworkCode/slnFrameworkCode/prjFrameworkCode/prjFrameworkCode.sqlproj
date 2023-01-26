@@ -76,6 +76,8 @@
     <Build Include="000-Frameworks\000-010 Table.sql" />
     <Build Include="000-Frameworks\Table1.sql" />
     <Build Include="010-DatabaseAndSchemas\010-020 CreateSchema.sql" />
+    <Build Include="000-Frameworks\000-052 usp_Framework_200_Master.sql" />
+    <Build Include="000-Frameworks\000-050 usp_Framework_100_TRUNCATE.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="prjFrameworkCode.publish.xml" />

@@ -7,3 +7,4 @@ C:\Users\snikk\Desktop\FrameworkCode\slnFrameworkCode\prjFrameworkCode\obj\Debug
 C:\Users\snikk\Desktop\FrameworkCode\slnFrameworkCode\prjFrameworkCode\obj\Debug\predeploy.sql
 C:\Users\snikk\Desktop\FrameworkCode\slnFrameworkCode\prjFrameworkCode\obj\Debug\prjFrameworkCode.dll
 C:\Users\snikk\Desktop\FrameworkCode\slnFrameworkCode\prjFrameworkCode\obj\Debug\prjFrameworkCode.pdb
+C:\Users\snikk\Desktop\FrameworkCode\slnFrameworkCode\prjFrameworkCode\obj\Debug\prjFrameworkCode.sqlprojAssemblyReference.cache

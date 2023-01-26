@@ -339,6 +339,234 @@
 				</Entry>
 			</Relationship>
 		</Element>
+		<Element Type="SqlProcedure" Name="[Fwk].[usp_Framework_100_TRUNCATE]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	SET NOCOUNT ON;
+	DECLARE @Object_GuidId	uniqueIdentifier	=	NEWID()
+	DECLARE @CurrentSPName  nVarChar(100)		=	OBJECT_NAME(@@PROCID)
+	DECLARE @LogMessage		nVarChar(200) 		=	CAST(N'' AS nVarChar(200))
+
+	BEGIN TRY
+		BEGIN TRANSACTION
+			
+			-- For test only --- SET @LogMessage = 'Error in SP XXXXXXX '
+			SELECT 1 as 'tttt' , * FROM [Fwk].[Framework]
+
+			----- Internal Custom Logging
+			----- EXEC usp_Insert_Batch_log ( 'Start SP' , @CurrentSPName , GetDate() , @Parent_GuidId	, @Object_GuidId )
+
+			---=======================================================================
+			--- START CODE
+			---=======================================================================
+			SET @LogMessage = 'Error in TRUNCATE'
+			TRUNCATE TABLE [Fwk].[Framework];
+
+			---=======================================================================
+			--- END CODE
+			---=======================================================================
+			
+			----- Internal Custom Logging
+			----- EXEC usp_Insert_Batch_log ( 'End SP' , @CurrentSPName , GetDate(), @Parent_GuidId	, @Object_GuidId )
+		COMMIT 
+	END TRY
+	
+	BEGIN CATCH
+		----- Internal Custom Logging
+		----- EXEC usp_Insert_Batch_log (ErrorNumber, MSErrorMsg + @LogMessage , @CurrentSPName, @Parent_GuidId	, @Object_GuidId )
+		----- ;
+		-- For test only --- SELECT @LogMessage Error , @CurrentSPName PRODName
+		ROLLBACK
+	END CATCH 
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References Name="[Fwk].[Framework]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[Fwk].[usp_Framework_100_TRUNCATE].[@Parent_GuidId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[Fwk].[usp_Framework_100_TRUNCATE].[@ObjectTimeStamp]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References Name="[Fwk]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="2588" />
+				<Property Name="Length" Value="4192" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="----- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::&#xD;&#xA;----- FrmWrk: Nik - Shahriar Nikkhah               Date: 2022-09-21&#x9;Time: 23:04&#xD;&#xA;----- Author: Enzo - Parsa Bahrami                 Date: 2023-01-25&#x9;Time: 21:53&#xD;&#xA;----- &#xD;&#xA;----- Input :&#xD;&#xA;----- &#xD;&#xA;----- Output :&#xD;&#xA;----- &#xD;&#xA;----- Description : &#xD;&#xA;----- &#xD;&#xA;----- Benchmark : &#xD;&#xA;----- &#xD;&#xA;----- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---&#xD;&#xA;----- Revision History : For the next section please add : Your name , Date , what was modified or added.&#xD;&#xA;----- &#x9;&#x9;&#x9;&#x9;&#x9; Add reference number or reference an emails subject.&#xD;&#xA;----- &#xD;&#xA;----- &#xD;&#xA;----- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::&#xD;&#xA;-----   This script is intended only as a supplement to demos and lectures&#xD;&#xA;-----   given by &quot;Nik - Shahriar Nikkhah&quot; and/or &quot;Enzo - Parsa Bahrami&quot;&#xD;&#xA;-----   &#xD;&#xA;-----   THIS CODE AND INFORMATION ARE PROVIDED &quot;AS IS&quot; WITHOUT WARRANTY OF &#xD;&#xA;-----   ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED &#xD;&#xA;-----   TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, NON-INFRINGMENT AND/OR FITNESS FOR A&#xD;&#xA;-----   PARTICULAR PURPOSE.&#xD;&#xA;----- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::&#xD;&#xA;--USE [test]&#xD;&#xA;--GO&#xD;&#xA;--;&#xD;&#xA;&#xD;&#xA;-------************************************************************************************  &#xD;&#xA;----- Primary Tests/Evaluation&#xD;&#xA;-------************************************************************************************  &#xD;&#xA;/*&#xD;&#xA;SELECT * FROM sys.Objects WHERE name Like  '%usp_Framework_%'&#xD;&#xA;SELECT * FROM sys.Objects WHERE name = 'usp_Framework_100_TRUNCATE'&#xD;&#xA;*/&#xD;&#xA;&#xD;&#xA;-------************************************************************************************  &#xD;&#xA;----- Cleanup&#xD;&#xA;-------************************************************************************************ &#xD;&#xA;----- DROP PROCEDURE IF EXISTS [Fwk].[usp_Framework_100_TRUNCATE]&#xD;&#xA;--IF OBJECT_ID ('[Fwk].[usp_Framework_100_TRUNCATE]') IS NOT NULL AND 2 = 2 --( 2=2 is a Safety net)&#xD;&#xA;--&#x9;DROP PROCEDURE [Fwk].[usp_Framework_100_TRUNCATE]&#xD;&#xA;--GO;&#xD;&#xA;&#xD;&#xA;-------************************************************************************************  &#xD;&#xA;----- Extra Settings&#xD;&#xA;-------************************************************************************************  &#xD;&#xA;--SET ANSI_NULLS ON&#xD;&#xA;--GO&#xD;&#xA;--;&#xD;&#xA;&#xD;&#xA;--SET QUOTED_IDENTIFIER ON&#xD;&#xA;--GO&#xD;&#xA;--;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;-----************************************************************************************  &#xD;&#xA;----- Create object (Table/View/uSP/...)&#xD;&#xA;-----************************************************************************************  &#xD;&#xA;CREATE PROCEDURE [Fwk].[usp_Framework_100_TRUNCATE]&#xD;&#xA;(&#xD;&#xA;&#x9;&#x9;@Parent_GuidId&#x9;&#x9;uniqueIdentifier&#x9;--&#x9;This is the PARENT sp Guid_Id&#xD;&#xA;&#x9;,&#x9;@ObjectTimeStamp&#x9;DateTime&#x9;&#x9;&#x9;--&#x9;Used to track ETL loads&#xD;&#xA;)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[Fwk].[usp_Framework_200_Master]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	SET NOCOUNT ON;
+	DECLARE @Object_GuidId	uniqueIdentifier	=	NEWID()
+	DECLARE @CurrentSPName  nVarChar(100)		=	OBJECT_NAME(@@PROCID)
+	DECLARE @LogMessage		nVarChar(200) 		=	CAST(N'' AS nVarChar(200))
+
+	BEGIN TRY
+		BEGIN TRANSACTION
+			
+			-- For test only --- SET @LogMessage = 'Error in SP XXXXXXX '
+			-- For test only --- SELECT 1/0 as test , * FROM [Fwk].[Framework]
+
+			----- Internal Custom Logging
+			----- EXEC usp_Insert_Batch_log ( 'Start SP' , @CurrentSPName , GetDate() , @Parent_GuidId	, @Object_GuidId )
+
+			---=======================================================================
+			--- START CODE
+			---=======================================================================
+			SET @LogMessage = 'Error in TRUNCATE'
+			EXEC [Fwk].[usp_Framework_100_TRUNCATE] @Object_GuidId , @ObjectTimeStamp;
+
+			-- SET @LogMessage = 'Error in BusinessLogic1'
+			-- EXEC [Fwk].[usp_Framework_300_BusinessLogic1] @Object_GuidId , @ObjectTimeStamp;
+
+			-- SET @LogMessage = 'Error in BusinessLogic2'
+			-- EXEC [Fwk].[usp_Framework_310_BusinessLogic2] @Object_GuidId , @ObjectTimeStamp;
+
+			-- SET @LogMessage = 'Error in UPDATE'
+			-- EXEC [Fwk].[usp_Framework_810_UPDATE] @Object_GuidId , @ObjectTimeStamp;
+
+			-- SET @LogMessage = 'Error in INSERT'
+			-- EXEC [Fwk].[usp_Framework_820_INSERT] @Object_GuidId , @ObjectTimeStamp;
+
+			-- SET @LogMessage = 'Error in INSERT'
+			-- EXEC [Fwk].[usp_Framework_830_UPSERT] @Object_GuidId , @ObjectTimeStamp;
+
+			---=======================================================================
+			--- END CODE 
+			---=======================================================================
+			
+			----- Internal Custom Logging
+			----- EXEC usp_Insert_Batch_log ( 'End SP' , @CurrentSPName , GetDate(), @Parent_GuidId	, @Object_GuidId )
+		COMMIT 
+	END TRY
+	
+	BEGIN CATCH
+		----- Internal Custom Logging
+		----- EXEC usp_Insert_Batch_log (ErrorNumber, MSErrorMsg + @LogMessage , @CurrentSPName, @Parent_GuidId	, @Object_GuidId )
+		----- ;
+		-- For test only --- SELECT @LogMessage Error , @CurrentSPName PRODName
+		ROLLBACK
+	END CATCH 
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References Name="[Fwk].[usp_Framework_100_TRUNCATE]" />
+				</Entry>
+				<Entry>
+					<References Name="[Fwk].[usp_Framework_200_Master].[@ObjectTimeStamp]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[Fwk].[usp_Framework_200_Master].[@Parent_GuidId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[Fwk].[usp_Framework_200_Master].[@ObjectTimeStamp]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References Name="[Fwk]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="2580" />
+				<Property Name="Length" Value="4902" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="----- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::&#xD;&#xA;----- FrmWrk: Nik - Shahriar Nikkhah               Date: 2022-09-21&#x9;Time: 23:04&#xD;&#xA;----- Author: Enzo - Parsa Bahrami                 Date: 2023-01-25&#x9;Time: 20:36&#xD;&#xA;----- &#xD;&#xA;----- Input :&#xD;&#xA;----- &#xD;&#xA;----- Output :&#xD;&#xA;----- &#xD;&#xA;----- Description : &#xD;&#xA;----- &#xD;&#xA;----- Benchmark : &#xD;&#xA;----- &#xD;&#xA;----- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---&#xD;&#xA;----- Revision History : For the next section please add : Your name , Date , what was modified or added.&#xD;&#xA;----- &#x9;&#x9;&#x9;&#x9;&#x9; Add reference number or reference an emails subject.&#xD;&#xA;----- &#xD;&#xA;----- &#xD;&#xA;----- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::&#xD;&#xA;-----   This script is intended only as a supplement to demos and lectures&#xD;&#xA;-----   given by &quot;Nik - Shahriar Nikkhah&quot; and/or &quot;Enzo - Parsa Bahrami&quot;&#xD;&#xA;-----   &#xD;&#xA;-----   THIS CODE AND INFORMATION ARE PROVIDED &quot;AS IS&quot; WITHOUT WARRANTY OF &#xD;&#xA;-----   ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED &#xD;&#xA;-----   TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, NON-INFRINGMENT AND/OR FITNESS FOR A&#xD;&#xA;-----   PARTICULAR PURPOSE.&#xD;&#xA;----- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::&#xD;&#xA;--USE [test]&#xD;&#xA;--GO&#xD;&#xA;--;&#xD;&#xA;&#xD;&#xA;-------************************************************************************************  &#xD;&#xA;----- Primary Tests/Evaluation&#xD;&#xA;-------************************************************************************************  &#xD;&#xA;/*&#xD;&#xA;SELECT * FROM sys.Objects WHERE name Like  '%usp_Framework_%'&#xD;&#xA;SELECT * FROM sys.Objects WHERE name = 'usp_Framework_200_Master'&#xD;&#xA;*/&#xD;&#xA;&#xD;&#xA;-------************************************************************************************  &#xD;&#xA;----- Cleanup&#xD;&#xA;-------************************************************************************************ &#xD;&#xA;----- DROP PROCEDURE IF EXISTS [Fwk].[usp_Framework_200_Master]&#xD;&#xA;--IF OBJECT_ID ('[Fwk].[usp_Framework_200_Master]') IS NOT NULL AND 2 = 2 --( 2=2 is a Safety net)&#xD;&#xA;--&#x9;DROP PROCEDURE [Fwk].[usp_Framework_200_Master]&#xD;&#xA;--GO;&#xD;&#xA;&#xD;&#xA;-------************************************************************************************  &#xD;&#xA;----- Extra Settings&#xD;&#xA;-------************************************************************************************  &#xD;&#xA;--SET ANSI_NULLS ON&#xD;&#xA;--GO&#xD;&#xA;--;&#xD;&#xA;&#xD;&#xA;--SET QUOTED_IDENTIFIER ON&#xD;&#xA;--GO&#xD;&#xA;--;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;-----************************************************************************************  &#xD;&#xA;----- Create object (Table/View/uSP/...)&#xD;&#xA;-----************************************************************************************  &#xD;&#xA;CREATE PROCEDURE [Fwk].[usp_Framework_200_Master]&#xD;&#xA;(&#xD;&#xA;&#x9;&#x9;@Parent_GuidId&#x9;&#x9;uniqueIdentifier&#x9;--&#x9;This is the ADF RunID Guid_Id&#xD;&#xA;&#x9;,&#x9;@ObjectTimeStamp&#x9;DateTime&#x9;&#x9;&#x9;--&#x9;Used to track ETL loads&#xD;&#xA;)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
 		<Element Type="SqlSchema" Name="[Lkp]">
 			<Relationship Name="Authorizer">
 				<Entry>
@@ -363,6 +591,26 @@
 			<Relationship Name="Host">
 				<Entry>
 					<References Name="[Fwk].[CPK__Fwk__Framework__idf_FrameworkKey]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlProcedure].[Fwk].[usp_Framework_100_TRUNCATE].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'This is the [Fwk].[usp_Framework_100_TRUNCATE] Procedure.']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[Fwk].[usp_Framework_100_TRUNCATE]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlProcedure].[Fwk].[usp_Framework_200_Master].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'This is the [Fwk].[usp_Framework_200_Master] Procedure.']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[Fwk].[usp_Framework_200_Master]" />
 				</Entry>
 			</Relationship>
 		</Element>
